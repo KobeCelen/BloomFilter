@@ -14,7 +14,8 @@ std::size_t Hasher<ElementType>::operator()(ElementType e) const {
 
     std::size_t hashValue = 0;
     for (char ch : e) {
-        hashValue = hashValue * 22 + ch - c;
+        std::cout << "value ch in e " << int(ch) << std::endl;
+        hashValue = hashValue * 2 + ch - c;
     }
 
     //std::cout << "HASHER: hashvalue: " << hashValue << std::endl;

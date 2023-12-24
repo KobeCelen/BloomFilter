@@ -17,12 +17,4 @@ public:
     std::size_t operator() (ElementType e) const;
 };
 
-/*template <>
-class Hasher<std::string> {
-public:
-    std::size_t c;
 
-    Hasher(std::size_t c);
-
-    std::size_t operator()(const std::string& e) const;
-};*/
