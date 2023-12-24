@@ -14,7 +14,7 @@ std::size_t Hasher<ElementType>::operator()(ElementType e) const {
 
     std::size_t hashValue = 0;
     for (char ch : e) {
-        std::cout << "value ch in e " << int(ch) << std::endl;
+        //std::cout << "value ch in e " << int(ch) << std::endl;
         hashValue = hashValue * 2 + ch - c;
     }
 
@@ -25,15 +25,4 @@ std::size_t Hasher<ElementType>::operator()(ElementType e) const {
 template class Hasher<std::string>;
 
 
-
-
-
-/*template <>
-Hasher<std::string>::Hasher(std::size_t c) : c(c) {}
-
-template <>
-std::size_t Hasher<std::string>::operator()(const std::string& e) const {
-    // Your hash function implementation for strings here
-}
- */
 

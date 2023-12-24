@@ -14,8 +14,10 @@ public:
 
     bool is_full() const;
 
+    std::vector<bool> bitArray;
+
 private:
     std::size_t bitSize;
     std::vector<std::size_t> hashInitializationConstants;
-    std::vector<bool> bitArray;
+
 };

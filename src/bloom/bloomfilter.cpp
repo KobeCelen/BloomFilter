@@ -14,19 +14,23 @@ void BloomFilter<ElementType>::insert(const ElementType& e) {
     // Insert method implementation here
     for (std::size_t i = 0; i < hashInitializationConstants.size(); ++i) {
         //std::cout << hashInitializationConstants[i] << std::endl;
+
+        if (is_full()){
+            std::cout << "BLOOM FILTER IS FULL " << std::endl;
+            //throw std::invalid_argument("BLOOM FILTER IS FULL RESTART PROGRAM! '" + e + "' is not inserted!");
+        }
+
         Hasher<ElementType> hasher(hashInitializationConstants[i]);
         std::size_t hashValue = hasher(e) % bitSize;
         std::cout << "BLOOM: value in the array: " << hashValue << std::endl;
         bitArray[hashValue] = true;  // Set the corresponding bit to one
-        if (is_full()){
-            std::cout << "BLOOM FILTER IS FULL " << std::endl;
-            break;
-        }
     }
 
+    /*
     for (bool bit : bitArray) {
         std::cout << bit << " ";
     }
+    */
     std::cout << std::endl;
 
 }
@@ -42,6 +46,7 @@ bool BloomFilter<ElementType>::query(const ElementType& e) const {
             return false;  // If any bit is zero, the element is definitely not in the Bloom filter
         }
     }
+    std::cout << std::endl;
     return true;  // All bits are one, the element might be in the Bloom filter
 }
 
