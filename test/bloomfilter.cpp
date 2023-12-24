@@ -11,8 +11,8 @@ using namespace std;
 TEST_CASE("d")
 {
 
-    vector<size_t> hashConstants = {0xDEADBEEF, 0xC0FFEE};
-    BloomFilter<std::string> bloomFilter(10, hashConstants);
+    vector<size_t> hashConstants = {0xDEADBEEF, 0xC0FFEE, 0xABCDEF};
+    BloomFilter<std::string> bloomFilter(1000, hashConstants);
 
     bloomFilter.insert("hello");
     bloomFilter.insert("world");

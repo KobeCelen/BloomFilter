@@ -37,6 +37,7 @@ bool BloomFilter<ElementType>::query(const ElementType& e) const {
     for (std::size_t i = 0; i < hashInitializationConstants.size(); ++i) {
         Hasher<ElementType> hasher(hashInitializationConstants[i]);
         std::size_t hashValue = hasher(e) % bitSize;
+        std::cout << "BLOOM: search value in the array: " << hashValue << std::endl;
         if (!bitArray[hashValue]) {
             return false;  // If any bit is zero, the element is definitely not in the Bloom filter
         }
